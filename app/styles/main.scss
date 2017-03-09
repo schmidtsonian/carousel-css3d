@@ -1,0 +1,115 @@
+@import
+    'base/reset';
+
+@import
+    'utils/variables',
+    'utils/mixins';
+
+@import
+    'base/typography';
+
+body {
+	font-family: $FONT_BODY;
+}
+
+.slider {
+    position: absolute;
+
+    width: 100vw;
+    height: 100vh;
+}
+.slider__slide {
+    position: absolute;
+
+    float: left;
+
+    width: 100%;
+    height: 100%;
+
+    transform-style: preserve-3d;
+    perspective: 100vh;
+}
+
+$transition-duration: 0.75s;
+.cube {
+    position: relative;
+
+    float: left;
+
+    width: 25%;
+    height: 100%;
+
+    transition: transform $transition-duration, left $transition-duration;
+    transform-origin: center center;
+
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transform: translateZ( -15em ) rotateY( 0deg );
+}
+
+
+.left {
+    .cube {
+        transform: translateZ( -1em ) rotateY( 90deg );
+        &:nth-child(2){
+            transition-delay: 0.15s;
+        }
+        &:nth-child(3){
+            transition-delay: 0.3s;
+        }
+        &:nth-child(4){
+            transition-delay: 0.45s;
+        }
+    }
+}
+.right {
+    .cube {
+        transform: translateZ( -1em ) rotateY( -90deg );
+
+        &:nth-child(3){
+            transition-delay: 0.15s;
+        }
+        &:nth-child(2){
+            transition-delay: 0.3s;
+        }
+        &:nth-child(1){
+            transition-delay: 0.45s;
+        }
+    }
+}
+
+.cube__side {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    transform-origin: center center;
+
+    background: no-repeat scroll 50% center;
+    background-attachment: fixed;
+    background-size: cover;
+    opacity: 1;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    transition: opacity $transition-duration;
+    &--front  {transform: rotateY(   0deg ) translateZ( 15em ); }
+    &--back   {transform: rotateX( 180deg ) translateZ( 15em ); }
+    &--right  {transform: rotateY(  90deg ) translateZ( 15em ); }
+    &--left   {transform: rotateY( -90deg ) translateZ( 15em ); }
+    &--top    {transform: rotateX(  90deg ) translateZ( 15em ); }
+    &--bottom {transform: rotateX( -90deg ) translateZ( 15em ); }
+}
+
+.bt {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    top: 50%;
+    transform: translateY(-50px);
+    cursor: pointer;
+    &--right{
+        right: 0
+    }
+}
