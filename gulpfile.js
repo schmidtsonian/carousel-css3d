@@ -23,7 +23,7 @@ const runSequence     = require('run-sequence');
 const sass            = require('gulp-sass');
 const sourcemaps      = require('gulp-sourcemaps');
 const ts              = require('gulp-typescript');
-const typedoc         = require("gulp-typedoc");
+// const typedoc         = require("gulp-typedoc");
 const uglify          = require('gulp-uglify');
 
 const path = {
@@ -47,7 +47,7 @@ const path = {
     jsons   : {
         src  : 'app/assets/jsons/**/*.json',
         dest : 'public/jsons',
-        outTypedoc : 'public/jsons/typedoc.json',
+        // outTypedoc : 'public/jsons/typedoc.json',
     },
     scripts : {
         src  : 'app/typescripts/**/*.ts',
@@ -136,7 +136,7 @@ gulp.task('scripts', () => {
         .src(path.scripts.src)
         .pipe(sourcemaps.init())
         .pipe(ts({
-                target: "ES5",
+                target: "es6",
             	out: path.scripts.out,
                 module: 'amd'
     	    }
@@ -147,19 +147,19 @@ gulp.task('scripts', () => {
         .pipe(connect.reload());
 });
 
-gulp.task('typedoc', () => {
+// gulp.task('typedoc', () => {
 
-    return gulp
-        .src('app/typescripts/**/*.ts')
-        .pipe(tsConfig())
-        .pipe(typedoc({
-            module: "commonjs",
-            target: "es5",
-            out: "public/docs/",
-            name: "Spotify Connection",
-            version: true,
-        }));
-});
+//     return gulp
+//         .src('app/typescripts/**/*.ts')
+//         .pipe(tsConfig())
+//         .pipe(typedoc({
+//             module: "commonjs",
+//             target: "es6",
+//             out: "public/docs/",
+//             name: "Spotify Connection",
+//             version: true,
+//         }));
+// });
 
 gulp.task('styles', () => {
     return gulp

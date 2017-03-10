@@ -1,0 +1,41 @@
+@mixin abs-center {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    margin: auto;
+}
+
+@mixin abs-center-bottom {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    margin: auto;
+}
+
+@mixin abs-center-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+
+    margin: auto;
+}
+
+@mixin abs-center-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+    margin: auto;
+}
+
+.u-abs-center        { @include abs-center;        }
+.u-abs-center-bottom { @include abs-center-bottom; }
+.u-abs-center-right  { @include abs-center-right;  }
+.u-abs-center-left   { @include abs-center-left;   }
