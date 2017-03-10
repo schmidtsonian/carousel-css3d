@@ -1,12 +1,14 @@
-.o-main {
+.cg-main {
     position: relative;
 
     width: 100vw;
+    min-height: 100vh;
     padding-top: 50px;
 
     @include sm-devices() {
         left: 50px;
 
         width: calc(100vw - 50px);
+        padding-top: 0;
     }
 }

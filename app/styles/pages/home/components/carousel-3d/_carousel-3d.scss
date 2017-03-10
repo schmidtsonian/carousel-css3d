@@ -1,11 +1,16 @@
 
-.slider {
-    position: absolute;
+.c-c3d {
+    position: relative;
 
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: calc(100vh - 50px);
+
+    @include sm-devices {
+        height: 100vh;
+    }
 }
-.slider__slide {
+
+.c-c3d__slide {
     position: absolute;
 
     float: left;
@@ -18,7 +23,7 @@
 }
 
 $transition-duration: 0.75s;
-.cube {
+.c-c3d__cube {
     position: relative;
 
     float: left;
@@ -35,8 +40,8 @@ $transition-duration: 0.75s;
 }
 
 
-.left {
-    .cube {
+.is-left {
+    .c-c3d__cube {
         transform: translateZ( -1em ) rotateY( 90deg );
         &:nth-child(2){
             transition-delay: 0.15s;
@@ -49,8 +54,8 @@ $transition-duration: 0.75s;
         }
     }
 }
-.right {
-    .cube {
+.is-right {
+    .c-c3d__cube {
         transform: translateZ( -1em ) rotateY( -90deg );
 
         &:nth-child(3){
@@ -65,7 +70,7 @@ $transition-duration: 0.75s;
     }
 }
 
-.cube__side {
+.c-c3d__cube__side {
     position: absolute;
 
     width: 100%;
@@ -88,7 +93,7 @@ $transition-duration: 0.75s;
     &--bottom {transform: rotateX( -90deg ) translateZ( 15em ); }
 }
 
-.bt {
+.c-3d__bt {
     position: absolute;
     width: 100px;
     height: 100px;

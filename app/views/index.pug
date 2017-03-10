@@ -1,15 +1,18 @@
-extends _objects/master/_master.pug
+extends _layout/master/_master
 
-//- block body
-//-     .slider#js-slider
-//-         - var IMG_PATH = 'images/'
-//-         - var bar = 0;
-//-         while bar < 4
-//-             .cube
-//-                 .cube__side.cube__side--front(style='background-image: url('+IMG_PATH+'kv1.jpg);')
-//-                 .cube__side.cube__side--right(style='background-image: url('+IMG_PATH+'kv2.jpg);')
-//-                 .cube__side.cube__side--left(style='background-image: url('+IMG_PATH+'kv3.jpg);')
-//-             - bar++
+block css
+    link(rel='stylesheet' href=PATH+'/css/pages/home/home.css', media='none' onload='if(media!="all")media="all"')
 
-//-     .bt.bt--left#js-bt__left
-//-     .bt.bt--right#js-bt__right
+block body
+    .c-c3d#js-slider
+        - var IMG_PATH = 'images/';
+        - var bar = 0;
+        while bar < 4
+            .c-c3d__cube
+                .c-c3d__cube__side.c-c3d__cube__side--front(style='background-image: url('+IMG_PATH+'kv1.jpg);')
+                .c-c3d__cube__side.c-c3d__cube__side--right(style='background-image: url('+IMG_PATH+'kv2.jpg);')
+                .c-c3d__cube__side.c-c3d__cube__side--left(style='background-image: url('+IMG_PATH+'kv3.jpg);')
+            - bar++;
+
+    .c-3d__bt.c-3d__bt--left#js-bt__left
+    .c-3d__bt.c-3d__bt--right#js-bt__right
