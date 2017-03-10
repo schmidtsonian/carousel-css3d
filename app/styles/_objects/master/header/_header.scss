@@ -1,14 +1,16 @@
 .o-header {
-	position: fixed;
-	background-color: $BLACK;
-	width: 100vw;
-	height: 50px;
+    position: fixed;
+    z-index: 100;
 
+    width: 100vw;
+    height: 50px;
 
-	@include sm-devices() {
+    background-color: $BLACK;
 
-		width: 50px;
-		height: 100vh;
-		left: 0;
-	}
+    @include sm-devices() {
+        left: 0;
+
+        width: 50px;
+        height: 100vh;
+    }
 }

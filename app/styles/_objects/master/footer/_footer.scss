@@ -1,0 +1,14 @@
+.o-footer {
+    position: relative;
+
+    width: 100vw;
+    height: 500px;
+
+    background-color: $BLUE;
+
+    @include sm-devices() {
+        left: 50px;
+
+        width: calc(100vw - 50px);
+    }
+}
