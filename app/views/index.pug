@@ -1,6 +1,5 @@
 extends _layout/master/_master
 
-
 mixin _get_c3d_slide(directory, imgName, total)
     - var IMG_PATH = 'images/';
     - var count = 0;
@@ -8,25 +7,25 @@ mixin _get_c3d_slide(directory, imgName, total)
     while count < total
         - arr.push(IMG_PATH + directory + '/' + imgName + '_' + count + '.jpg');
         - count++;
-    .c-c3d__slide(data-images=arr)
+    .c-home-c3d__slide(data-images=arr)
 
 block css
-    link(rel='stylesheet' href=PATH+'/css/pages/home/home.css', media='none' onload='if(media!="all")media="all"')
+    link(rel='stylesheet' href=PATH+'/css/views/home/home.css', media='none' onload='if(media!="all")media="all"')
 
 block body
-    .c-c3d#js-slider
+    .c-home-c3d#js-slider
         - var IMG_PATH = 'images/';
         - var bar = 0;
         while bar < 4
-            .c-c3d__cube
-                .c-c3d__cube__side.c-c3d__cube__side--front(style='background-image: url('+IMG_PATH+'kv1.jpg);')
-                .c-c3d__cube__side.c-c3d__cube__side--back
-                .c-c3d__cube__side.c-c3d__cube__side--left(style='background-image: url('+IMG_PATH+'kv3.jpg);')
-                .c-c3d__cube__side.c-c3d__cube__side--right(style='background-image: url('+IMG_PATH+'kv2.jpg);')
+            .c-home-c3d__cube
+                .c-home-c3d__cube__side.c-home-c3d__cube__side--front(style='background-image: url('+IMG_PATH+'kv1.jpg);')
+                .c-home-c3d__cube__side.c-home-c3d__cube__side--back
+                .c-home-c3d__cube__side.c-home-c3d__cube__side--left(style='background-image: url('+IMG_PATH+'kv3.jpg);')
+                .c-home-c3d__cube__side.c-home-c3d__cube__side--right(style='background-image: url('+IMG_PATH+'kv2.jpg);')
             - bar++;
         +_get_c3d_slide('slide-1', 'cambio', 25)
         +_get_c3d_slide('slide-2', 'intro', 25)
         +_get_c3d_slide('slide-3', 'mascara', 25)
 
-    .c-3d__bt.c-3d__bt--left#js-bt__left
-    .c-3d__bt.c-3d__bt--right#js-bt__right
+    .c-home-3d__bt.c-home-3d__bt--left#js-bt__left
+    .c-home-3d__bt.c-home-3d__bt--right#js-bt__right
