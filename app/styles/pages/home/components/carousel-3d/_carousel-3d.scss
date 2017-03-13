@@ -5,6 +5,8 @@
     width: 100%;
     height: calc(100vh - 50px);
 
+    perspective: 1000vh;
+    
     @include sm-devices {
         height: 100vh;
     }
@@ -19,7 +21,6 @@
     height: 100%;
 
     transform-style: preserve-3d;
-    perspective: 100vh;
 }
 
 $transition-duration: 0.75s;
@@ -36,13 +37,18 @@ $transition-duration: 0.75s;
 
     transform-style: preserve-3d;
     backface-visibility: hidden;
-    transform: translateZ( -15em ) rotateY( 0deg );
+    transform: translateZ( calc(22vw / 2) ) rotateY( 0deg );
+
+    &:nth-child(2),
+    &:nth-child(3){
+        z-index: 1;
+    }
 }
 
 
 .is-left {
     .c-c3d__cube {
-        transform: translateZ( -1em ) rotateY( 90deg );
+        transform: translateZ( calc(22vw / 2) ) rotateY( 90deg );
         &:nth-child(2){
             transition-delay: 0.15s;
         }
@@ -56,7 +62,7 @@ $transition-duration: 0.75s;
 }
 .is-right {
     .c-c3d__cube {
-        transform: translateZ( -1em ) rotateY( -90deg );
+        transform: translateZ( calc(22vw / 2) ) rotateY( -90deg );
 
         &:nth-child(3){
             transition-delay: 0.15s;
@@ -78,19 +84,38 @@ $transition-duration: 0.75s;
 
     transform-origin: center center;
 
-    background: no-repeat scroll 50% center;
+    background: no-repeat scroll 50% center black;
     background-attachment: fixed;
     background-size: cover;
     opacity: 1;
     backface-visibility: hidden;
     transform-style: preserve-3d;
     transition: opacity $transition-duration;
-    &--front  {transform: rotateY(   0deg ) translateZ( 15em ); }
-    &--back   {transform: rotateX( 180deg ) translateZ( 15em ); }
-    &--right  {transform: rotateY(  90deg ) translateZ( 15em ); }
-    &--left   {transform: rotateY( -90deg ) translateZ( 15em ); }
-    &--top    {transform: rotateX(  90deg ) translateZ( 15em ); }
-    &--bottom {transform: rotateX( -90deg ) translateZ( 15em ); }
+
+    &--front  {transform: rotateY(   0deg ) translateZ(calc(24vw / 2)); }
+    &--back   {transform: rotateX( 180deg ) translateZ(calc(24vw / 2)); }
+    &--right  {transform: rotateY(  90deg ) translateZ(calc(24vw / 2)); }
+    &--left   {transform: rotateY( -90deg ) translateZ(calc(24vw / 2)); }
+    &--top    {transform: rotateX(  90deg ) translateZ(calc(24vw / 2)); }
+    &--bottom {transform: rotateX( -90deg ) translateZ(calc(24vw / 2)); }
+
+    @include sm-devices {
+        &--front  {transform: rotateY(   0deg ) translateZ(calc(23vw / 2)); }
+        &--back   {transform: rotateX( 180deg ) translateZ(calc(23vw / 2)); }
+        &--right  {transform: rotateY(  90deg ) translateZ(calc(23vw / 2)); }
+        &--left   {transform: rotateY( -90deg ) translateZ(calc(23vw / 2)); }
+        &--top    {transform: rotateX(  90deg ) translateZ(calc(23vw / 2)); }
+        &--bottom {transform: rotateX( -90deg ) translateZ(calc(23vw / 2)); }
+    }
+
+    @include md-devices {
+        &--front  {transform: rotateY(   0deg ) translateZ(calc(24vw / 2)); }
+        &--back   {transform: rotateX( 180deg ) translateZ(calc(24vw / 2)); }
+        &--right  {transform: rotateY(  90deg ) translateZ(calc(24vw / 2)); }
+        &--left   {transform: rotateY( -90deg ) translateZ(calc(24vw / 2)); }
+        &--top    {transform: rotateX(  90deg ) translateZ(calc(24vw / 2)); }
+        &--bottom {transform: rotateX( -90deg ) translateZ(calc(24vw / 2)); }
+    }
 }
 
 .c-3d__bt {
